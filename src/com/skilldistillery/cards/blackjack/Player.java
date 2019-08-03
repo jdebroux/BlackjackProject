@@ -14,7 +14,7 @@ public class Player extends AbstractBlackjackPlayer {
 	public void hitOrStay(Dealer d, Scanner kb) {
 		boolean keepGoing = true;
 		String input = "";
-		while (hand.getHandValue() < AbstractHand.BLACKJACK_MAX_VALUE || keepGoing == true) {
+		while (hand.getHandValue() < AbstractHand.BLACKJACK_MAX_VALUE && keepGoing == true) {
 			do {
 				System.out.print(
 						"Would you like to " + HitOrStay.HIT.getName() + " or " + HitOrStay.STAY.getName() + "? ");
@@ -25,7 +25,7 @@ public class Player extends AbstractBlackjackPlayer {
 							+ HitOrStay.STAY.getName() + "'.");
 				}
 			} while (!input.equals(HitOrStay.HIT.getName()) && !input.equals(HitOrStay.STAY.getName()));
-
+			kb.nextLine();
 			switch (input) {
 			case "hit":
 				hit(d);

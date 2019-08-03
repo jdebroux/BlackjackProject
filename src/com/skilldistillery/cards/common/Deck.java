@@ -15,8 +15,20 @@ public class Deck {
 		}
 	}
 	
+	public void addADeck(Deck d) {
+		deck.addAll(d.getAllCards());
+	}
+	
 	public int checkDeckSize() {
 		return deck.size();
+	}
+	
+	public Card getCard(int i) {
+		return deck.get(i);
+	}
+	
+	public List<Card> getAllCards(){
+		return deck;
 	}
 	
 	public Card dealCard() {

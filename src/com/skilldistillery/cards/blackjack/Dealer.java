@@ -31,7 +31,6 @@ public class Dealer extends AbstractBlackjackPlayer {
 			}
 		}
 		System.out.println("Dealer stays with: " + hand.getHandValue());
-
 	}
 
 	public Deck getDeck() {

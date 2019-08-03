@@ -28,7 +28,7 @@ public class Dealing {
 
 	private void playAgain() {
 		System.out.print("Would you like to play again? ");
-		String cont = kb.next();
+		String cont = kb.nextLine();
 		switch (cont) {
 		case "":
 		case "y":
