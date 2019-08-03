@@ -31,6 +31,11 @@ public class BlackjackGameDriver {
 
 	private void mainMenu() {
 		deckQuestion();
+		roundOfBlackjack();
+	}
+
+	private void roundOfBlackjack() {
+		
 	}
 
 	private void deckQuestion() {
@@ -60,6 +65,7 @@ public class BlackjackGameDriver {
 				masterDeck.addADeck(deck);
 			}
 		}
+		masterDeck.shuffleDeck();
 	}
 
 	private void startUp() {
