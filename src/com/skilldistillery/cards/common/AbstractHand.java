@@ -5,6 +5,8 @@ import java.util.List;
 
 public abstract class AbstractHand {
 	protected List<Card> cards;
+	public static final int BLACKJACK_MAX_VALUE = 21;
+	public static final int DEALER_STAYS = 17;
 	
 	public AbstractHand() {
 	cards = new ArrayList<>();
@@ -19,6 +21,10 @@ public abstract class AbstractHand {
 	}
 	
 	public abstract int getHandValue();
+	
+	public List<Card> getHand(){
+		return cards;
+	}
 
 	@Override
 	public String toString() {
