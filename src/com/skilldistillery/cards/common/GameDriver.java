@@ -16,7 +16,7 @@ public class GameDriver {
 
 	private void mainMenu() {
 		int input = 1;
-		System.out.println("** WELCOME TO CARD GAMES **");
+		System.out.println("***** WELCOME TO CARD GAMES *****");
 		System.out.println();
 		while (input > 0 && input < 4) {
 			System.out.println("WHICH GAME WOULD YOU LIKE TO PLAY? ");

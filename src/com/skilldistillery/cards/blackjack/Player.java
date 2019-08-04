@@ -6,54 +6,69 @@ import com.skilldistillery.cards.common.AbstractHand;
 import com.skilldistillery.cards.common.Card;
 
 public class Player extends AbstractBlackjackPlayer {
-
-	public Player(BlackjackHand hand) {
+	private String name;
+	
+	public Player(BlackjackHand hand, String name) {
 		super(hand);
+		this.name = name;
 	}
 
 	public void hitOrStay(Dealer d, Scanner kb) {
-		boolean keepGoing = true;
 		String input = "";
-		while (hand.getHandValue() < AbstractHand.BLACKJACK_MAX_VALUE && keepGoing == true) {
+		while (this.getHand().getHandValue() <= AbstractHand.BLACKJACK_MAX_VALUE) {
 			do {
+				printHandValue();
+				System.out.println();
 				System.out.print(
-						"Would you like to " + HitOrStay.HIT.getName() + " or " + HitOrStay.STAY.getName() + "? ");
-				input = kb.nextLine();
-				input = input.toLowerCase();
+						"WOULD YOU LIKE TO " + HitOrStay.HIT.getName() + " OR " + HitOrStay.STAY.getName() + "? ");
+				input = kb.next();
+				input = input.toUpperCase();
 				if (!input.equals(HitOrStay.HIT.getName()) && !input.equals(HitOrStay.STAY.getName())) {
-					System.out.println("You didn't enter '" + HitOrStay.HIT.getName() + "' or '"
-							+ HitOrStay.STAY.getName() + "'.");
+					System.out.println("YOU DIDN'T ENTER " + HitOrStay.HIT.getName() + " OR "
+							+ HitOrStay.STAY.getName());
 				}
 			} while (!input.equals(HitOrStay.HIT.getName()) && !input.equals(HitOrStay.STAY.getName()));
 			kb.nextLine();
 			switch (input) {
-			case "hit":
+			case "HIT":
 				hit(d);
 				break;
-			case "stay":
+			case "STAY":
 				stay();
 				return;
 			}
 		}
 	}
 
+	private void printHandValue() {
+		System.out.println();
+		System.out.println(this.name + "'S HAND IS CURRENTLY: " + this.getHand());
+		System.out.println(this.name + "'S HAND VALUE: " + this.getHand().getHandValue());
+	}
+
 	private void hit(Dealer d) {
-		System.out.println("Player has chosen to " + HitOrStay.HIT.getName() + ".");
-		hand.addCard(d.getDeck().dealCard());
-		readHand();
+		System.out.println();
+		System.out.println(this.name + " CHOSE TO " + HitOrStay.HIT.getName());
+		Card newCard = d.getDeck().dealCard();
+		System.out.println(this.name + " DREW A [" + newCard + "]");
+		this.getHand().addCard(newCard);
+		if(this.getHand().getHandValue() > AbstractHand.BLACKJACK_MAX_VALUE) {
+			System.out.println(this.name + " HAS BUSTED WITH: " + this.getHand().getHandValue());
+			return;
+		}
 	}
 
 	private void stay() {
-		System.out.println("Player has chosen to " + HitOrStay.STAY.getName() + ".");
-		readHand();
+		System.out.println();
+		System.out.println(this.name + " CHOSE TO " + HitOrStay.STAY.getName() + " WITH: " + this.getHand().getHandValue());
 	}
 
-	private void readHand() {
-		System.out.print("Player hand is: ");
-		for (Card card : hand.getHand()) {
-			System.out.print(card + " ");
-		}
-		System.out.println("\nand worth: " + hand.getHandValue());
+
+	public String getName() {
+		return name;
 	}
 
+	public void setName(String name) {
+		this.name = name;
+	}
 }

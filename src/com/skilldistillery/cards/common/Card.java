@@ -10,7 +10,7 @@ public class Card {
 	}
 	
 	public String toString() {
-		return	this.rank + " of " + this.suit;
+		return	this.rank + " OF " + this.suit;
 	}
 
 	public int getValue() {

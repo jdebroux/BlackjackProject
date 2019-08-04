@@ -9,4 +9,7 @@ public abstract class AbstractBlackjackPlayer {
 		this.hand = hand;
 	}
 
+	public AbstractHand getHand() {
+		return hand;
+	}
 }
