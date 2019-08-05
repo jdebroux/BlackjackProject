@@ -150,13 +150,13 @@ public class BlackjackGameDriver {
 				individualPlayer.getHand().addCard(dealer.getDeck().dealCard());
 			}
 			if (i == 0) {
-//				firstCard = dealer.getDeck().dealCard();
-				firstCard = new Card(Suit.CLUBS, Rank.ACE);
+				firstCard = dealer.getDeck().dealCard();
+//				firstCard = new Card(Suit.CLUBS, Rank.ACE);
 				dealer.getHand().addCard(firstCard);
 			}
 		}
-//		dealer.getHand().addCard(dealer.getDeck().dealCard());
-		dealer.getHand().addCard(new Card(Suit.CLUBS, Rank.SIX));
+		dealer.getHand().addCard(dealer.getDeck().dealCard());
+//		dealer.getHand().addCard(new Card(Suit.CLUBS, Rank.SIX));
 		checkTwoAces(dealer.getHand());
 		for (Player individualPlayer : table.getPlayerList()) {
 			checkTwoAces(individualPlayer.getHand());
