@@ -1,26 +1,16 @@
-## Blackjack Project -----NEEDS TO BE EDITED FOR BLACKJACK.
+## Blackjack Project
 
-Week 3 homework for Skill Distillery Java bootcamp.
+Week 4 homework for Skill Distillery Java bootcamp.
 
 ### Overview
 
-Welcome to Jets!
+Welcome to Blackjack!
 
-I have created a fleet of jets which all have different capabilities.  Upon starting the jets application, the application reads a text document with each jets information already written.  This information is then used in the different jet objections constructors to create the fleet.  
+In this app, you will be able to run a standard game of Blackjack.  You will first be prompted to enter your name, how many players you would like to play against, and how many decks you would like to play with.  The dealer then deals out cards to everyone playing in correct order.  Just like in the casino, you will only be able to see one of the dealer's cards.  You will then get the option to hit or stay based on your hand total.  
 
-Of course this is all happening behind the scenes.  The user is first presented with a menu with 9 selections.  The user can:
+If Aces are present at all, they will be able to have the value 1 or 11, whichever is better for a players hand.  After you bust or decide to stay, the rest of the players get an option to hit or stay.  If the dealer is dealt a soft 17, the dealer must hit.
 
-1. View the entire fleet
-2. Make every jet take off and show how long they can stay in the air
-3. View the fastest jet(s)
-4. View the jet with the longest range
-5. Have the jets that implement the cargo carrying class load their cargo
-6. Have the jets that implement the fighting class load weapons and fight
-7. Add a new jet to the fleet
-8. Remove a jet from the fleet
-9. Quit the application
-
-Test it out!
+After a game is completed, you will see who all wins and who loses.  If you're feeling lucky, give it a go!
 
 ### Technologies Used
 
@@ -36,19 +26,27 @@ Test it out!
 
 ### Lessons Learned
 
-Writing this program had many hurdles that had to be crossed.  Adding the buffered reader and file readers were a bit of a challenge.  At first, I accidentally instantiated multiple air fields, so different classes methods wouldn't be putting the jets in the correct list, or in some cases adding the jets twice to the same list.  Luckily I was able to utilize the debugger, as well as strategically add different system out lines of code to narrow the code down and eventually fix this.
+This has been by far the hardest project I have worked on.  That being said, there were plenty of learning opportunities.  I can tell that my understanding of Abstraction, Poly-Morphism, Inheritance, and Encapsulation is more complete because of this project.  I also figured out a way to reduce code lines by instantiating multiple things all in the same line (lines 68-75 of the BlackjackGameDriver class).
 
-The menu options became more difficult to write with the idea that any jet that is created along the way would need to be added to those equations and included in any searches (fastest jet/longest range).  The added jets would also have to possibly implement different interfaces as well.  These hurdles were not easy to overcome with only 3 weeks of coding experience, however, I was able to focus and come up with solutions through some abstract thought.
+This was also the first project where I included Enums as well as creating certain variables as constants such as the max value a hand can have without busting and the limit where the dealer would hit or stay as static final.  This allows an owner of this application to change these constants all in one place if they wish to.
+
+Also, through using the debugging utility, I was able to strengthen one of my weaker skills.  Up until now I have avoided the debugger, however, I now understand how useful it can be, and how many hours it can save!
 
 ### Attack Plan
 
-I began working on this program by creating an UML diagram, and then translating it into code across various classes.  Once I had gotten the basic blueprint figured out, I created a test jets.txt file to get the buffered reader and file reader taken care of.  Once I could see that I had the text file being read correctly and the jets had all been correctly constructed, I was able to look at the menu.
+I began working on this program by creating an UML diagram, and then translating it into code across various classes.  Once I had gotten the basic blueprint figured out, I created the hit or stay methods for the dealer and player classes.  I then created the menus, and the basic game logic to get a minimum viable project created.  Once this was created and debugged, I could focus more on more complex goals.
 
-The menu was very easy to make.  I used a basic switch, and then wrote the code for each switch option in a separate menu switch class to keep code organized.  I then went down the list of options and wrote code for them, keeping in mind that adding a jet to the fleet was eventually going to be a possibility.  After that I just wrote the equations for what each menu options desired output was.
+The complex goals I worked on were:
+ * Adding multiple computer players
+ * Having computer players have different hitting personalities
+ * Letting the player choose how many decks were used
+ * Having the dealer automatically discard the current deck and shuffle the same amount of decks that the user originally stated they wanted to play with once half of those cards had been used
+ * Adding the logic for Aces to be 1 or 11 depending on situation.
+ * Having the dealer hit on soft 17's
 
 ### Wishlist Additions
 
-* Adding pilots to pair with jets and the ability to create a new pilot
-* Create a mini-game within the dogfight menu option where a user can actually fight an enemy with hit points
-* Allow the user to save their file to a new text file
-* Add a question for the user in the beginning to tell the application which text file they wanted to read which would add the possibility of having numerous air fields
+* Adding a money system for users to bet with and have the computer plays bet as well
+* Allowing the player and computer players to split
+* Allowing the player and computer players to double down
+* Use the majority of this project to create other games such as poker and spades
