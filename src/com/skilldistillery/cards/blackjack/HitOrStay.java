@@ -1,7 +1,7 @@
 package com.skilldistillery.cards.blackjack;
 
 public enum HitOrStay {
-	HIT("hit"), STAY("stay");
+	HIT("HIT"), STAY("STAY");
 	
 	private final String name;
 

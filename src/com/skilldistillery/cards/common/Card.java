@@ -4,19 +4,30 @@ public class Card {
 	private Suit suit;
 	private Rank rank;
 	
+	public Card(){
+	}
+	
 	public Card(Suit s, Rank r) {
 		suit = s;
 		rank = r;
 	}
 	
 	public String toString() {
-		return	this.rank + " of " + this.suit;
+		if(this.rank.equals(Rank.ACE1)) {
+			return Rank.ACE + " OF " + this.suit;
+		}
+		String s = this.rank + " OF " + this.suit;
+		return s;
 	}
 
 	public int getValue() {
 		return rank.getValue();
 	}
 	
+	public Suit getSuit() {
+		return suit;
+	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
@@ -41,7 +52,10 @@ public class Card {
 			return false;
 		return true;
 	}
-	
+
+	public void setRank(Rank rank) {
+		this.rank = rank;
+	}
 	
 	
 }

@@ -4,9 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public abstract class AbstractHand {
-	protected List<Card> cards;
-	public static final int BLACKJACK_MAX_VALUE = 21;
-	public static final int DEALER_STAYS = 17;
+	private List<Card> cards;
 	
 	public AbstractHand() {
 	cards = new ArrayList<>();
@@ -28,8 +26,16 @@ public abstract class AbstractHand {
 
 	@Override
 	public String toString() {
-		//TODO: fancy display of cards in hand?
+		//TODO fancy ASCII art
 		return cards.toString();
+	}
+	
+	public List<Card> getCards() {
+		return cards;
+	}
+
+	public void setCards(List<Card> cards) {
+		this.cards = cards;
 	}
 	
 	

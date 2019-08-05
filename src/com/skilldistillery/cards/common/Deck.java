@@ -10,10 +10,12 @@ public class Deck {
 	public Deck() {
 		for (Suit cardSuit : Suit.values()) {
 			for (Rank cardRank : Rank.values()) {
-				deck.add(new Card(cardSuit, cardRank));
+				if(cardRank.getValue() != Rank.ACE1.getValue()) {
+					deck.add(new Card(cardSuit, cardRank));
+				}
 			}
 		}
-	}
+	}//end Deck
 	
 	public void addADeck(Deck d) {
 		deck.addAll(d.getAllCards());

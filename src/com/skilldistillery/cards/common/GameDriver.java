@@ -15,14 +15,14 @@ public class GameDriver {
 	}
 
 	private void mainMenu() {
-		int input = 1;
-		System.out.println("** WELCOME TO CARD GAMES **");
-		System.out.println();
-		while (input > 0 && input < 4) {
+		int input = 0;
+		while (input != 4) {
+			System.out.println("***** WELCOME TO CARD GAMES *****");
+			System.out.println();
 			System.out.println("WHICH GAME WOULD YOU LIKE TO PLAY? ");
 			System.out.println("1) BLACKJACK ");
 			System.out.println("2) POKER ");
-			System.out.println("3) SOLITAIRE ");
+			System.out.println("3) SPADES ");
 			System.out.println("4) QUIT ");
 			System.out.println();
 			System.out.print("SELECTION >> ");
@@ -30,6 +30,7 @@ public class GameDriver {
 				input = kb.nextInt();
 			} catch (InputMismatchException ime) {
 				kb.nextLine();
+				input = 0;
 			}
 			if(input < 1 || input > 4) {
 				System.out.println("\n*** PLEASE ENTER A VALID OPTION ***\n");
